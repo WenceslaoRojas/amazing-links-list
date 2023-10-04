@@ -1,0 +1,35 @@
+---
+import type { Link } from '../types'
+interface Props {
+  page: Link
+}
+
+const { page } = Astro.props
+---
+
+<div class='p-6'>
+  <img
+    class='object-cover object-center w-full mb-8 lg:h-48 md:h-36 rounded-xl'
+    src={page.image}
+    alt='blog'
+    loading='lazy'
+  />
+  <h2 class='mb-8 text-xs font-semibold tracking-widest text-blue-600 uppercase'>
+    {page.category}
+  </h2>
+  <h1 class='mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-neutral-200 lg:text-3xl'>
+    {page.title}
+  </h1>
+  <p class='mx-auto text-base font-medium leading-relaxed text-gray-500'>
+    {page.description}
+  </p>
+  <div class='mt-4'>
+    <a
+      href={page.link}
+      class='inline-flex items-center mt-4 font-semibold text-blue-600 lg:mb-0 hover:text-neutral-600'
+      title='Go to page'
+      target='_blank'>
+      Go to page »
+    </a>
+  </div>
+</div>
